@@ -19,6 +19,7 @@ export default function BookForm({ onSubmit, onCancel }: BookFormProps) {
   const [formData, setFormData] = useState({
     title: "",
     author: "",
+    summary:"",
     narrator:"",
     status: "To Read",
     rating: "",
@@ -59,6 +60,11 @@ export default function BookForm({ onSubmit, onCancel }: BookFormProps) {
           <div className="space-y-2">
             <Label htmlFor="author">Author</Label>
             <Input id="author" name="author" value={formData.author} onChange={handleChange} required />
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="author">Book Summary</Label>
+            <Input id="summary" name="summary" value={formData.summary} onChange={handleChange} required />
           </div>
 
           <div className="space-y-2">

@@ -5,6 +5,7 @@ let books: Book[] = [
   {
     id: 1,
     title: "The Great Gatsby",
+    summary:"This is about great gatsby",
     author: "F. Scott Fitzgerald",
     narrator: "Teddy Hamilton",
     status: "Read",
@@ -13,6 +14,7 @@ let books: Book[] = [
   {
     id: 2,
     title: "To Kill a Mockingbird",
+    summary:"This is about great gatsby",
     author: "Harper Lee",
     narrator: "Jason Clarke",
     status: "Read",
@@ -21,6 +23,7 @@ let books: Book[] = [
   {
     id: 3,
     title: "1984",
+    summary:"This is about great gatsby",
     author: "George Orwell",
     narrator: "Ava Erickson",
     status: "Reading",
@@ -29,6 +32,7 @@ let books: Book[] = [
   {
     id: 4,
     title: "The Hobbit",
+    summary:"This is about great gatsby",
     author: "J.R.R. Tolkien",
     narrator: "Julia Wahlen",
     status: "To Read",
