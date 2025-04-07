@@ -1,5 +1,5 @@
 "use client"
-
+import { useState } from "react"
 import type { Book } from "@/lib/types"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
@@ -12,6 +12,7 @@ interface BookListProps {
 }
 
 export default function BookList({ books, onDelete }: BookListProps) {
+  const [isHovering, setIsHovering] = useState(false)
   if (books.length === 0) {
     return (
       <div className="text-center py-10 border rounded-lg">
@@ -31,16 +32,25 @@ export default function BookList({ books, onDelete }: BookListProps) {
             <TableHead>Status</TableHead>
             <TableHead>Rating</TableHead>
             <TableHead className="w-[80px]">Actions</TableHead>
-            {/* //Add Narrators
-            //Add Summary of the book with Hover */}
           </TableRow>
         </TableHeader>
         <TableBody>
           {books.map((book) => (
             <TableRow key={book.id}>
-              <TableCell className="font-medium">{book.title}</TableCell>
-              <TableCell>{book.author}</TableCell>
+              
+              <TableCell className="font-medium">{book.title}
+             
+              <div className="flex justify-between items-center p-3  hover:bg-muted transition-colors"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}>
 
+        <h3 className="font-medium">
+          {isHovering && <span className="ml-2 text-sm text-muted-foreground">Summary: {book.summary}</span>}
+        </h3>
+      </div>
+      </TableCell>
+  
+              <TableCell>{book.author}</TableCell>
               <TableCell>{book.narrator}</TableCell>
               <TableCell>
                 <Badge variant={book.status === "Read" ? "success" : book.status === "Reading" ? "warning" : "default"}>
@@ -58,6 +68,7 @@ export default function BookList({ books, onDelete }: BookListProps) {
         </TableBody>
       </Table>
     </div>
+    
   )
 }
 
